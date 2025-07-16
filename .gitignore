@@ -28,3 +28,8 @@ data
 pipe_data
 1_pipe
 Pipe Counter
+
+
+# Ignore the local models
+best_pipe_model.pth
+final_pipe_model.pth
