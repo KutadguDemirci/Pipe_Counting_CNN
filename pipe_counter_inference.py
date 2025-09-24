@@ -32,6 +32,7 @@ def load_model_for_inference(model_path, device):
     model = create_model(num_classes=2)
     checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
+    model.roi_heads.detections_per_img = 500 # manually set the instance per image
     model.to(device)
     model.eval()
     return model
