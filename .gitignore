@@ -37,3 +37,6 @@ final_pipe_model_v1.pth
 final_pipe_model_v2.pth
 
 pipe_counter_model_train.ipynb
+best_pipe_model.pth
+final_pipe_model.pth
+*.pth
