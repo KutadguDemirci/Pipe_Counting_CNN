@@ -55,7 +55,7 @@ def predict_pipes(model, image_path, device, confidence_threshold=0.5):
     count = len(boxes)
     return count, boxes, scores, image
 
-# --- Optional: Visualize ---
+# Visualize ---
 def visualize_predictions(image, boxes, scores, save_path=None):
     img = image.copy()
     for box in boxes:
