@@ -2,12 +2,18 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
 import torch
 import tempfile
+import os
+from pathlib import Path
 from inference import load_model_for_inference, predict
 
 app = FastAPI()
 
+# Resolve model path relative to this script's location
+script_dir = Path(__file__).parent
+model_path = script_dir.parent / "final_pipe_model_v2.pth"
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = load_model_for_inference("../final_pipe_model_v2.pth", device)
+model = load_model_for_inference(str(model_path), device)
 
 @app.post("/predict/")
 async def predict_image(file: UploadFile = File(...)):
